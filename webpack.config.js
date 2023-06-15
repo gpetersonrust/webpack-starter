@@ -2,16 +2,10 @@ const path = require('path');
  
  
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { dist_dir, parent_dir, MODE } = require('./library/constants/global');
+const { dist_dir, parent_dir, MODE, function_php_file, hash_file } = require('./library/constants/global');
 const HashUpdatePlugin = require('./plugins/updateHash');
-const find_files_recursively = require('./library/utilities/find_files_recursively');
-const ignored = find_files_recursively(
-    parent_dir,
-    [],
-    'node_modules|.git|webpack',
-    '.php$|.html$'
-  );
- ignored.push(dist_dir + '/hashes.json');
+ 
+const ignored = [hash_file, function_php_file]
   module.exports = {
   mode:  MODE,
   watchOptions: {

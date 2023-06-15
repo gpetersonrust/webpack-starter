@@ -1,5 +1,5 @@
 const HashOutputPlugin = require('webpack-plugin-hash-output');
-const { hash_file: hashFile, file_path } = require('../library/constants/global');
+const { hash_file: hashFile, file_path, function_php_file } = require('../library/constants/global');
  
 const fs = require('fs');
 const find_files_recursively = require('../library/utilities/find_files_recursively');
@@ -11,34 +11,18 @@ class HashUpdatePlugin {
       const prefix = '-wp';
       const newHash = prefix + stats.hash;
        const hash_str = fs.readFileSync(hashFile, 'utf8');
-       
-      const json = JSON.parse(hash_str);
+       const json = JSON.parse(hash_str);
        const hash = json[0];
-      const files = find_files_recursively(
-        file_path,
-        [],
-        'node_modules|.git|webpack',
-        '.js$|.php$|.css$|.html$'
-      );
-       files.forEach((file) => {
-        if (file.match(/\.html$|\.php$/)) {
-          const fileContent = fs.readFileSync(file, 'utf8');
-            const newFileContent = fileContent.replaceAll(hash, newHash);
-         
-          fs.writeFileSync(file, newFileContent);
-       
-        }
-      });
-
-      updateHashFile(json, newHash, hashFile);
-
-      
+       const fileContent = fs.readFileSync(function_php_file, 'utf8');
+       const newFileContent = fileContent.replaceAll(hash, newHash);
+       fs.writeFileSync(function_php_file, newFileContent);
+       updateHashFile(json, newHash, hashFile);
     });
   }
 }
 
 
-// 
+ 
  
 
  
@@ -51,3 +35,5 @@ function updateHashFile(json, newHash, hashFile) {
 }
 
 module.exports = HashUpdatePlugin;
+
+

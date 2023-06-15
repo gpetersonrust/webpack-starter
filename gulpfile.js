@@ -25,8 +25,8 @@ const isWindows = process.platform === 'win32';
 
 
 let proxy =
-  (isMac && 'http://localhost:8888/tailwind-test/') ||
-  (isWindows && 'http://localhost/tailwind-test/');
+  (isMac && 'http://localhost:8888/walker/') ||
+  (isWindows && 'http://localhost/walker/');
 
 function watch() {
   browserSync.init({
