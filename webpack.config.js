@@ -1,8 +1,6 @@
 const path = require('path');
- 
- 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { dist_dir, parent_dir, MODE, function_php_file, hash_file } = require('./library/constants/global');
+const {MODE, function_php_file, hash_file } = require('./library/constants/global');
 const HashUpdatePlugin = require('./plugins/updateHash');
  
 const ignored = [hash_file, function_php_file]
