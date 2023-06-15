@@ -55,5 +55,3 @@ const ignored = [hash_file, function_php_file]
     new HashUpdatePlugin(),
   ],
 };
-
- 
