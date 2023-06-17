@@ -1,8 +1,6 @@
 const HashOutputPlugin = require('webpack-plugin-hash-output');
 const { hash_file: hashFile, file_path, function_php_file } = require('../library/constants/global');
- 
 const fs = require('fs');
-const find_files_recursively = require('../library/utilities/find_files_recursively');
 const path = require('path');
 
 class HashUpdatePlugin {
