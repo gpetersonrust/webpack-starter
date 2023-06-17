@@ -65,3 +65,7 @@ function watch() {
   });
 }
 exports.default = watch;
+
+console.log('====================================');
+console.log('hello world');
+console.log('====================================');
