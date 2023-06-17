@@ -1,0 +1,3 @@
+[submodule "library/tailwind-components"]
+	path = library/tailwind-components
+	url = https://github.com/gpetersonrust/tailwind-customizations.git
