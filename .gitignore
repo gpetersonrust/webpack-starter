@@ -129,9 +129,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-
-# ignore src folder
-src
-```
-
  
