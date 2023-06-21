@@ -1,17 +1,27 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {MODE, function_php_file, hash_file } = require('./library/constants/global');
+const { MODE, hash_php_file } = require('./library/constants/global');
 const HashUpdatePlugin = require('./plugins/updateHash');
- 
-const ignored = [hash_file, function_php_file]
-  module.exports = {
-  mode:  MODE,
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+const ignored = [hash_php_file];
+module.exports = {
+  mode: MODE,
   watchOptions: {
     // ignore changes to files in parent_dir
-    ignored,
+    ignored: []
+      
   },
   entry: {
     app: path.resolve(__dirname, 'src', 'app', 'js', 'app.js'),
+    // front-page
+    'front-page': path.resolve(
+      __dirname,
+      'src',
+      'front-page',
+      'js',
+      'front-page.js'
+    ),
   },
   output: {
     publicPath: '/',
@@ -42,14 +52,21 @@ const ignored = [hash_file, function_php_file]
       },
     ],
   },
+  optimization: {
+    minimizer: [
+      // new CssMinimizerPlugin(),
+      // other minimizers can be added here
+    ],
+  },
   plugins: [
     new MiniCssExtractPlugin({
+      // minimize tre
+
       filename: ({ chunk: { name } }) => {
         return name === 'main'
           ? '[name]-wp[fullhash].css'
           : '[name]/[name]-wp[fullhash].css';
       },
     }),
-    new HashUpdatePlugin(),
   ],
 };
