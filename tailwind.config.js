@@ -1,9 +1,9 @@
 const plugin = require('tailwindcss/plugin');
 const php_files = require('./php_glob');
 const {
-  myUtilities,
-  myComponents,
-  myBase,
+  utilities: myUtilities,
+  base: myBase,
+  components: myComponents,
 } = require('./library/tailwind-components/app/tailwind-plugin');
 
 module.exports = {

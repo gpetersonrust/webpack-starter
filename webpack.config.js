@@ -14,14 +14,7 @@ module.exports = {
   },
   entry: {
     app: path.resolve(__dirname, 'src', 'app', 'js', 'app.js'),
-    // front-page
-    'front-page': path.resolve(
-      __dirname,
-      'src',
-      'front-page',
-      'js',
-      'front-page.js'
-    ),
+    
   },
   output: {
     publicPath: '/',
