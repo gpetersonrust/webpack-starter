@@ -2,9 +2,9 @@ const gulp = require('gulp');
 const glob = require('glob');
 const browserSync = require('browser-sync');
 const { exec } = require('child_process');
-const find_files_recursively = require('./library/utilities/find_files_recursively');
-const { file_path, tailwind_dir } = require('./library/constants/global');
-const dirname = process.cwd();
+ const { file_path, tailwind_dir } = require('./library/constants/global');
+const find_files_recursively = require('./library/utilities/FS/find_files_recursively');
+ 
 const paths = glob.sync(file_path + '/**/**/*');
  
  
@@ -16,6 +16,7 @@ const tailwind_customizer_files = find_files_recursively(
   '.json$'
 );
 
+
 // check if system is mac
 const isMac = process.platform === 'darwin';
 
@@ -25,8 +26,8 @@ const isWindows = process.platform === 'win32';
 
 
 let proxy =
-  (isMac && 'http://localhost:8888/walker/') ||
-  (isWindows && 'http://localhost/walker/');
+  (isMac && 'http://localhost:8888/listeo') ||
+  (isWindows && 'http://localhost:8888/listeo');
 
 function watch() {
   browserSync.init({
@@ -38,7 +39,7 @@ function watch() {
     browserSync.reload();
   
      
-    //  let  fs.readFileSync(hashFile, 'utf8');
+ 
      
 
     // exec("git pull origin master", (err, stdout, stderr) => {
@@ -57,6 +58,9 @@ function watch() {
 
     // run node update-tailwind.js
     exec('node update-tailwind.js', (err, stdout, stderr) => {
+     console.log('====================================');
+     console.log('updating');
+     console.log('====================================');
       if (err) {
         console.error(err);
         return;
