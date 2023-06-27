@@ -1,0 +1,59 @@
+*,
+body {
+    margin: 0;
+    padding: 0;
+ 
+    box-sizing: border-box;
+ font-family: 'Raleway',
+ sans-serif;
+ 
+overscroll-behavior: none;
+}
+
+
+
+button{
+    border: 0;
+    outline: 0;
+}
+ 
+ .progress-bar {
+     width: 30%;
+     aspect-ratio: 1/1;
+     border-radius: 50%;
+     @apply flex items-center justify-center text-base text-center relative;
+
+     .inner-progress {
+         @apply absolute top-0 left-0 w-full h-full flex items-center justify-center text-center px-4;
+     }
+
+ }
+
+ .circular-progress-container {
+     display: flex;
+     justify-content: space-evenly;
+ }
+
+
+ .chart-container {
+     display: flex;
+     height: 100%;
+     align-items: flex-end;
+     @apply justify-evenly;
+ }
+
+ .chart-item {
+     height: 100%;
+     width: 57px;
+     background: linear-gradient(white 0, rgb(0, 105, 158), white 100%);
+     color: #fff;
+     font-weight: 600;
+     font-size: 1.75rem;
+     @apply auto-center border border-solid border-white;
+ }
+
+
+
+
+
+ 

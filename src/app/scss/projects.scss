@@ -1,0 +1,299 @@
+ 
+
+.project-header {
+    border: 1px solid #fff;
+    border-left: none;
+    border-right: none;
+    padding: 4rem;
+    height: 236px;
+    background: #000000c2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    .project-info {
+        margin-right: auto;
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .company-name {
+            font-size: 24px;
+            margin: 0;
+        }
+    }
+
+    .team-members {
+        border-right: 1px solid #ccc;
+        padding-right: 10px;
+        @apply gap-4 relative;
+
+
+        .team-member{
+            border: 2px white solid;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 5px;
+           
+        }
+
+        .more-members {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+      
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: #fff;
+            @apply relative bg-white text-app-primary ;
+        }
+    }
+
+    .options {
+        display: flex;
+        align-items: center;
+        @apply gap-4 p-8;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 5px;
+          color: #fff;
+          font-size: 2.5rem;
+          @apply  hover:scale-125 cursor-pointer  transition-all duration-500;
+        }
+
+        
+    }
+}
+
+
+ 
+
+.project-stats {
+    display: flex;
+ 
+       
+    .project-stats-boxes {
+        display: flex;
+         
+
+        
+        @apply text-white  grid grid-cols-3 w-full;
+
+        .project-stats-box {
+        
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            border: 1px solid #fff;
+            
+         
+       
+            flex: 1;
+            position: relative;
+            text-align: center;
+
+            .percentage {
+                font-size: 36px;
+                font-weight: bold;
+                margin: 0 0 1rem 0;
+                height: 6rem;
+                width: 6rem; 
+                border-radius: 50%;
+                @apply auto-center bg-white border border-solid border-white ; 
+
+                &.positive {
+                    @apply bg-green-900 text-white;
+                }
+
+                &.negative {
+                    @apply bg-red-900 text-white;
+                }
+            }
+
+            .text {
+                font-size: 18px;
+                margin: 0;
+            }
+            .title{
+               
+                color: #fff;
+                position: absolute; 
+                top: 5%; 
+                left:5%; 
+               
+            } 
+        }
+    }
+
+    .recent-activities {
+        width: 25%;
+        
+        overflow: scroll;
+        height: 1000px;
+        
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid #fff;
+        
+
+        .activity-card {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            @apply p-8 border-b border-solid border-white;
+
+            .header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                color: #fff;
+                @apply gap-4;
+
+                .avatar {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    @apply border border-solid border-white;
+                }
+
+                .name {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+
+                .time {
+                    font-size: 14px;
+                    @apply muted ;
+                   
+                }
+            }
+
+            .activity {
+                font-size: 16px;
+                margin: 0;
+                color: #fff;
+            }
+
+            .heart-button {
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                @apply text-red-500 gap-2  justify-end;
+
+                .heart-icon {
+                    font-size: 24px;
+                    margin-right: 5px;
+                }
+
+                .likes {
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+        }
+
+        h2{
+            @apply text-white text-2xl mt-8 pb-2 mx-8 font-bold border-b; 
+        }
+    }
+
+    .addition-buttons{
+        @apply flex justify-center py-16 border-b border-solid border-white;
+    }
+}
+
+.requirements-table{
+    @apply bg-app-secondary rounded-md shadow-lg p-4 text-white my-8  ;
+    .requirements-header{
+        @apply grid grid-cols-4 text-center p-4;
+        .requirement-cell{
+            @apply border-r border-white border-solid text-center border-b text-sm px-2 border-white border-solid flex items-center justify-center min-h-[75px];
+            &:last-child{
+                border-right: 0;
+            }
+        }
+        
+    }
+
+    .requirements-body{
+        @apply h-[450px] overflow-scroll;
+    }
+
+    .requirement-item{
+        border-color: rgb(255 255 255 / 0.5);
+        border-bottom: 1px solid;
+        @apply grid grid-cols-4 text-center p-4;
+
+        .status-circle{
+            @apply auto-center;
+            .status-indicator {
+                 width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                @apply bg-app-primary  cursor-pointer;
+
+                &.done{
+                    @apply bg-app-success;
+                }
+
+                &.urgent{
+                    @apply bg-app-urgent;
+                }
+                &.progress{
+                    @apply bg-app-progress;
+                }
+            } 
+        }
+    }
+}
+
+
+.project-note-grid{
+    @apply grid grid-cols-3  gap-4;
+    height: calc(224px * 3 + 2rem);
+    overflow: scroll;
+   
+
+    .project-note{
+        @apply bg-white shadow-xl py-4 px-8 rounded-lg;
+
+        .project-note__content{
+            @apply my-4;
+        }
+
+        .project-note__footer__left{
+            @apply flex justify-end;
+            
+        }
+
+        .project-note__footer__right{
+            @apply flex justify-between items-center;
+        }
+    }
+}
+ 
+ 
+.requirements-container {
+    @apply flex gap-4;
+}
+
+.project-section-break{
+    @apply   justify-center gap-24 border-b border-white border-solid pb-8;
+}

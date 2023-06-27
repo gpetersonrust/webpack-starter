@@ -1,0 +1,60 @@
+.available-project__title{
+    @apply text-white text-3xl font-bold my-8;
+}
+
+.project-company-title{
+    @apply text-3xl border-b uppercase border-white pb-2 mb-8 mt-16 text-white w-fit pr-16 font-bold border-solid;
+}
+
+.available-projects-project-grid{
+    @apply flex flex-wrap gap-8;
+}
+
+.available-projects-project-card {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    @apply text-app-tertiary hover:scale-110 transition-all duration-500 hover:shadow-2xl cursor-pointer;
+
+    .badge {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+  
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        @apply bg-app-tertiary;
+    }
+
+    h4.title {
+        font-weight: bold;
+        @apply mt-8;
+    }
+
+    p.subtitle {
+        font-size: 0.8em;
+        
+    }
+
+    .team-members {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        @apply my-8;
+        .team-member{
+            @apply w-10 h-10 rounded-full overflow-hidden relative;
+        }
+    }
+
+    @apply w-1/5;
+}
+
+.available-project-container {
+   
+        height: 600px;
+        overflow: scroll;
+    
+}

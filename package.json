@@ -28,7 +28,8 @@
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.3.2",
     "webpack": "^5.84.1",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.9",
@@ -36,6 +37,8 @@
     "browser-sync": "^2.27.11",
     "concurrently": "^7.3.0",
     "gulp": "^4.0.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-inject": "^5.0.5",
     "mini-css-extract-plugin": "^2.6.0",
     "nodemon": "^2.0.22",
     "postcss-import": "^14.1.0",

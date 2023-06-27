@@ -1,20 +1,17 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { MODE, hash_php_file } = require('./library/constants/global');
-const HashUpdatePlugin = require('./plugins/updateHash');
+ 
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const ignored = [hash_php_file];
 module.exports = {
   mode: MODE,
-  watchOptions: {
-    // ignore changes to files in parent_dir
-    ignored: []
-      
-  },
+
+  devtool: 'source-map',
+
   entry: {
     app: path.resolve(__dirname, 'src', 'app', 'js', 'app.js'),
-    
   },
   output: {
     publicPath: '/',
@@ -33,9 +30,22 @@ module.exports = {
         test: /.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            },
+          },
           'postcss-loader',
-          'sass-loader',
+          // source map sass-loader
+
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
@@ -47,7 +57,7 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      // new CssMinimizerPlugin(),
+      new CssMinimizerPlugin(),
       // other minimizers can be added here
     ],
   },

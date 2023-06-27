@@ -10,6 +10,9 @@ module.exports = {
     dist_dir : parent_dir +  'dist',
     MODE: 'development', 
     hash_php_file:  parent_dir + 'utilities/correct_hash.php',
+    footer_file: parent_dir + 'footer.php',
+    dev_js_file: parent_dir + 'webpack/dev/dev.js',
+    line_in_footer_to_replace: '<?php wp_footer(); ?>',
 }
 
  
