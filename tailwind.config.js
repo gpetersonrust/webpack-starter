@@ -1,10 +1,14 @@
-const plugin = require('tailwindcss/plugin');
-const php_files = require('./php_glob');
-const {
-  utilities: myUtilities,
-  base: myBase,
-  components: myComponents,
-} = require('./library/tailwind-components/app/tailwind-plugin');
+const { file_path } = require("./library/constants/global");
+const find_files_recursively = require("./library/utilities/FS/find_files_recursively");
+ 
+ const php_files = find_files_recursively(
+    file_path,
+    [],
+    "node_modules|dist|.git",
+    ".php$"
+
+ )
+ 
 
 module.exports = {
   mode: 'jit',
@@ -28,11 +32,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    plugin(function ({ addUtilities, addComponents, addBase }) {
-      addUtilities(myUtilities, ['responsive', 'hover', 'focus', 'active']);
-      addBase(myBase, ['responsive', 'hover', 'focus', 'active']);
-      addComponents(myComponents, ['responsive', 'hover', 'focus', 'active']);
-    }),
-  ],
+ 
 };
